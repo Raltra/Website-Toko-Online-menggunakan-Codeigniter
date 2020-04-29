@@ -20,7 +20,7 @@ class Login extends MY_Controller {
     public function index()
     {
         if(!$_POST){
-            $input = (object) $this->register->getDefaultValues();
+            $input = (object) $this->login->getDefaultValues();
         }else{
             $input = (object) $this->input->post(null, true);
         }
