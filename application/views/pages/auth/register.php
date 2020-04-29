@@ -1,41 +1,36 @@
 <main role="main" class="container">
+<?php $this->load->view('layouts/_alert'); ?>
       <div class="container">
         <div class="row">
           <div class="col-md-8 mx-auto">
             <div class="card">
               <div class="card-header">Register</div>
               <div class="card-body">
-                <form action="">
+                <?= form_open('register', ['method' => 'POST']);?>
                   <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" name="" />
-                    <small class="form-text text-danger"
-                      >Nama harus diisi</small
-                    >
+                    <?= form_input('name', $input->name, ['class' => 'form-control', 'required' => true, 'autofocus' => true]) ?>
+                    <?= form_error('name') ?>
                   </div>
                   <div class="form-group">
                     <label>E-mail</label>
-                    <input type="email" class="form-control" name="" />
-                    <small class="form-text text-danger"
-                      >E-mail harus diisi</small
-                    >
+                    <?= 
+                    form_input(['type' => 'email', 'name' => 'email', 'value' => $input->email, 'class' => 'form-control', 'required' => true]);
+                     ?>
+                    <?= form_error('email') ?>
                   </div>
                   <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" name="" />
-                    <small class="form-text text-danger"
-                      >Password harus diisi</small
-                    >
+                    <?= form_password('password', '', ['class' => 'form-control', 'placeholder' => 'masukkan password minimal 8 karakter', 'required' => true]) ?>
+                    <?= form_error('password') ?>
                   </div>
                   <div class="form-group">
                     <label>Retype Password</label>
-                    <input type="password" class="form-control" name="" />
-                    <small class="form-text text-danger"
-                      >Password harus sama</small
-                    >
+                    <?= form_password('password_confirmation', '', ['class' => 'form-control', 'placeholder' => 'Masukkan password yang sama', 'required' => true]) ?>
+                    <?= form_error('password_confirmation') ?>
                   </div>
-                  <button type="submit" class="btn btn-primary">Login</button>
-                </form>
+                  <button type="submit" class="btn btn-primary">Register</button>
+                <?= form_close() ?>
               </div>
             </div>
           </div>

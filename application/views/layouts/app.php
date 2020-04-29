@@ -107,7 +107,7 @@
             <li class="nav-item">
                 <a href="login.html" class="nav-link">Login</a>
             </li>
-            <li class="nav-item"><a href="#" class="nav-link">Register</a></li>
+            <li class="nav-item"><a href="<?= base_url('register') ?>" class="nav-link">Register</a></li>
             <li class="nav-item dropdown">
                 <a
                 href="#"

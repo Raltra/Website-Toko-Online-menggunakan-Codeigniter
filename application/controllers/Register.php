@@ -32,7 +32,7 @@ class Register extends MY_Controller {
             return;
         }
 
-        if($this->register->run()){
+        if($this->register->run($input)){
             $this->session->set_flashdata('success', 'Berhasil melakukan registrasi!');
             redirect(base_url());
         }else{
