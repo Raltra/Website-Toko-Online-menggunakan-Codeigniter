@@ -22,6 +22,32 @@ class Category extends MY_Controller {
         $this->view($data);
     }
 
+    public function create(){
+        if(!$_POST){
+            $input = (object) $this->category->getDefaultValues();
+        }else{
+            $input = (object) $this->input->post(null, true);
+        }
+
+        if(!$this->category->validate()){
+            $data['title'] = 'Tambah Kategori';
+            $data['input'] = $input;
+            $data['form_action'] = 'category/create';
+            $data['page'] = 'pages/category/form';
+
+            $this->view($data);
+            return;
+        }
+
+        if($this->cateory->create($input)){
+            $this->session->set_flashdata('success', 'Data berhasil disimpan!');
+        }else{
+            $this->session->set_flashdata('fail', 'Oops! terjadi kesalahan');
+        }
+
+        redirect(base_url('category'));
+    }
+
 }
 
 /* End of file Category.php */
