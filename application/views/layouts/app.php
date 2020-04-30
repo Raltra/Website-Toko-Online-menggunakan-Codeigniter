@@ -20,13 +20,13 @@
     />
 
     <!-- fontawesome css -->
-    <link rel="stylesheet" href="assets/libs/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="<?= base_url('assets/libs/fontawesome/css/all.min.css') ?>" />
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<?= base_url('assets/libs/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet" />
 
     <!-- style CSS -->
-    <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="stylesheet" href="<?= base_url('assets/css/app.css') ?>" />
 
     <!-- Favicons -->
     <link
@@ -134,8 +134,8 @@
 
     <?php $this->load->view($page); ?>
 
-    <script src="assets/libs/jquery/jquery-3.5.0.min.js"></script>
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="<?= base_url('assets/libs/jquery/jquery-3.5.0.min.js') ?>"></script>
+    <script src="<?= base_url('assets/libs/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/script.js') ?>"></script>
   </body>
 </html>

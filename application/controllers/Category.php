@@ -39,13 +39,29 @@ class Category extends MY_Controller {
             return;
         }
 
-        if($this->cateory->create($input)){
+        if($this->category->create($input)){
             $this->session->set_flashdata('success', 'Data berhasil disimpan!');
         }else{
             $this->session->set_flashdata('fail', 'Oops! terjadi kesalahan');
         }
 
         redirect(base_url('category'));
+    }
+
+    public function unique_slug(){
+        $slug = $this->input->post('slug');
+        $id = $this->input->post('id');
+        $category = $this->category->where('id', $id)->first();
+
+        if($category){
+            if($id == $category->id){
+                return true;
+            }
+            $this->form_validation->set_message('unique_slug', '%s sudah digunakan!');
+            return false;
+        }
+
+        return true;
     }
 
 }

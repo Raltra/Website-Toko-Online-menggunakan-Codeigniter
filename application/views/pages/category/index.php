@@ -6,7 +6,7 @@
             <div class="card">
               <div class="card-header">
                 Kategori
-                <a href="#" class="btn btn-sm btn-outline-primary">Tambah</a>
+                <a href="<?= base_url('category/create') ?>" class="btn btn-sm btn-outline-primary">Tambah</a>
                 <div class="float-right">
                   <form action="">
                     <div class="input-group mb-3">
