@@ -8,21 +8,28 @@
                 Kategori
                 <a href="<?= base_url('category/create') ?>" class="btn btn-sm btn-outline-primary">Tambah</a>
                 <div class="float-right">
-                  <form action="">
+                  <form action="<?= base_url('category/search') ?>" method="POST">
                     <div class="input-group mb-3">
                       <input
                         type="text"
+                        name="keyword"
+                        value="<?= $this->session->userdata('keyword') ?>"
                         class="form-control form-control-sm text-center"
                         placeholder="Cari"
                       />
                       <div class="input-group-append">
                         <button
-                          class="btn btn-sm btn-outline-secondary"
+                          class="btn btn-sm btn-outline-primary"
                           type="submit"
                           id="button-addon2"
                         >
                           <i class="fas fa-search"></i>
                         </button>
+                        <a href="<?= base_url('category/reset') ?>">
+                          <button class="btn btn-sm btn-outline-danger" type="button">
+                            <i class="fas fa-eraser"></i>
+                          </button>
+                        </a>
                       </div>
                     </div>
                   </form>
