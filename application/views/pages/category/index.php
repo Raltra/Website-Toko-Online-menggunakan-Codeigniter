@@ -45,7 +45,8 @@
                       <td><?= $row->title ?></td>
                       <td><?= $row->slug ?></td>
                       <td class="align-middle">
-                        <form action="">
+                        <form action="<?= base_url('category/delete') ?>" method="POST">
+                        <input type="hidden" name="id" value="<?= $row->id ?>">
                           <a href="<?= base_url('category/edit/'.$row->id) ?>" class="btn btn-sm btn-outline-info">
                             <i class="fas fa-edit"></i>
                           </a>
