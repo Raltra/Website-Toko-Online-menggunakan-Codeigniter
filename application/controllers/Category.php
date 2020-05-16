@@ -48,6 +48,39 @@ class Category extends MY_Controller {
         redirect(base_url('category'));
     }
 
+    public function edit($id){
+        $data['content'] = $this->category->where('id', $id)->first();
+
+        if(!$data['content']){
+            $this->session->set_flashdata('warning', 'Maaf, data tidak ditemukan');
+            redirect(base_url('category'));
+            return;
+        }
+
+        if(!$_POST){
+            $data['input'] = $data['content'];
+        }else{
+            $data['input'] = (object) $this->input->post(null, true);
+        }
+
+        if(!$this->category->validate()){
+            $data['title'] = 'Ubah Kategori';
+            $data['form_action'] = "category/edit/$id";
+            $data['page'] = 'pages/category/form';
+
+            $this->view($data);
+            return;
+        }
+
+        if($this->category->where('id', $id)->update($data['input'])){
+            $this->session->set_flashdata('success', 'Data berhasil diperbaharui');
+        }else{
+            $this->session->set_flashdata('fail', 'Maaf, terjadi suatu kesalahan');
+        }
+
+        redirect(base_url('category'));
+    }
+
     public function unique_slug(){
         $slug = $this->input->post('slug');
         $id = $this->input->post('id');
@@ -57,6 +90,7 @@ class Category extends MY_Controller {
             if($id == $category->id){
                 return true;
             }
+            $this->load->library('form_validation');
             $this->form_validation->set_message('unique_slug', '%s sudah digunakan!');
             return false;
         }

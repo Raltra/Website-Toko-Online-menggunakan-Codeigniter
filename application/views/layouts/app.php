@@ -92,7 +92,7 @@
                 >
 
                 <div class="dropdown-menu" aria-labelledby="dropdown-1">
-                <a href="admin-category.html" class="dropdown-item">Kategori</a>
+                <a href="<?= base_url('category') ?>" class="dropdown-item">Kategori</a>
                 <a href="admin-product.html" class="dropdown-item">Produk</a>
                 <a href="admin-order.html" class="dropdown-item">Order</a>
                 </div>

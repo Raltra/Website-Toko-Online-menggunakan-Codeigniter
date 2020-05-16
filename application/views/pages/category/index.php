@@ -46,7 +46,7 @@
                       <td><?= $row->slug ?></td>
                       <td class="align-middle">
                         <form action="">
-                          <a href="" class="btn btn-sm btn-outline-info">
+                          <a href="<?= base_url('category/edit/'.$row->id) ?>" class="btn btn-sm btn-outline-info">
                             <i class="fas fa-edit"></i>
                           </a>
                           <button
