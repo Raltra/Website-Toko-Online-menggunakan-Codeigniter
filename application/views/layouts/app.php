@@ -77,7 +77,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#"
+                <a class="nav-link" href="<?= base_url() ?>"
                 >Home <span class="sr-only">(current)</span></a
                 >
             </li>
