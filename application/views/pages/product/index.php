@@ -60,12 +60,14 @@
                     <td class="align-middle"><p>Rp.<?= number_format($row->price, 0, ',', '.') ?></p></td>
                     <td class="align-middle"><p><?= $row->is_available ? "Tersedia" : "Kosong" ?></p></td>
                     <td class="align-middle">
-                    <form action="">
+                    <form action="<?= base_url('product/delete/'.$row->id) ?>" method="POST">
+                        <input type="hidden" name="id" value="<?= $row->id ?>">
                         <a href="<?= base_url('product/edit/'.$row->id) ?>" class="btn btn-sm btn-outline-info">
                         <i class="fas fa-edit"></i>
                         </a>
                         <button
                         type="submit"
+                        onclick="return confirm('apakah anda yakin ingin menghapus ?')"
                         class="btn btn-sm btn-outline-danger"
                         >
                         <i class="fas fa-eraser"></i>
