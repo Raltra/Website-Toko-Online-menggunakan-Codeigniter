@@ -61,7 +61,7 @@
                     <td class="align-middle"><p><?= $row->is_available ? "Tersedia" : "Kosong" ?></p></td>
                     <td class="align-middle">
                     <form action="">
-                        <a href="" class="btn btn-sm btn-outline-info">
+                        <a href="<?= base_url('product/edit/'.$row->id) ?>" class="btn btn-sm btn-outline-info">
                         <i class="fas fa-edit"></i>
                         </a>
                         <button
