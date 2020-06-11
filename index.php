@@ -36,9 +36,9 @@
  * @filesource
  */
 
- /**
-  * timezone jakart
-  */
+/**
+ * Timezone 
+ */
 date_default_timezone_set('Asia/Jakarta');
 
 /*
