@@ -144,6 +144,60 @@ class User extends MY_Controller {
             $this->view($data);
             return;
         }
+
+        if($this->user->where('id', $id)->update($data['input']))
+        {
+            $this->session->set_flashdata('success', 'Data berhasil disimpan!');
+        }
+        else
+        {
+            $this->session->set_flashdata('fail', 'Oops! terjadi suatu kesalahan');
+        }
+
+        redirect(base_url('user'));
+    }
+
+    public function delete($id)
+    {
+        if(!$_POST)
+        {
+            redirect(base_url('user'));
+        }
+
+        $user = $this->user->where('id', $id)->first();
+
+        if(!$user)
+        {
+            $this->session->set_flashdata('warning', 'Maaf data tidak dapat ditemukan');
+            redirect(base_url('user'));
+        }
+
+        if($this->user->where('id', $id)->delete()){
+            $this->user->deleteImage($user->image);
+            $this->session->set_flashdata('success', 'Data sudah berhasil dihapus!');
+        }else{
+            $this->session->set_flashdata('fail', 'Oops! terjadi suatu kesalahan !');
+        }
+
+        redirect(base_url('user'));
+    }
+
+    public function unique_email()
+    {
+        $email = $this->input->post('email');
+        $id = $this->input->post('id');
+        $user = $this->user->where('email', $email)->first();
+
+        if($user){
+            if($id == $user->id){
+                return true;
+            }
+            $this->load->library('form_validation');
+            $this->form_validation->set_message('unique_email', '%s sudah digunakan!');
+            return false;
+        }
+
+        return true;
     }
 
 }
